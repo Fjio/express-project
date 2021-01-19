@@ -6,6 +6,6 @@ To create your .env file : \
 To install  `node_modules` : \
 `npm i`
 
-To run the app on `localhost` : \
+To run the app on `localhost` : 
 - `npm run start` uses `node`
-- `npm run dev` uses `nodemon` [advised]
+-  `npm run dev` uses `nodemon` **[advised]**
