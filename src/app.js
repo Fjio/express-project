@@ -2,9 +2,18 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 
-app.get("/", function (req, res) {
-  res.send("Welcome on board 🚀");
+//dependencies :
+
+const auth = require('./auth/auth.routes');
+
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Hello World!',
+  });
 });
+
 
 function notFound(req, res, next) {
   res.status(404);
