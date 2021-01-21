@@ -11,7 +11,7 @@ const schema = Joi.object({
     .max(30),
   password: Joi.string()
     .trim()
-    .min(12)
+    .min(10)
     .regex(/(^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]))/),
   role: Joi.string().valid("user", "admin"),
 
@@ -32,8 +32,8 @@ const updateOne = async (req, res, next) => {
   //validate id param
   try {
     //validate request body
-    const validation = schema.validate(req.body);
-    if (!validation.error) {
+    const result = schema.validate(req.body);
+    if (!result.error) {
       //if valid, find the user with given id
       const query = { _id };
       const user = await users.findOne(query);

@@ -1,16 +1,19 @@
-require("dotenv").config();
 const express = require("express");
 const app = express();
-
+require("dotenv").config();
 //dependencies :
 
+const middleware = require('./auth/auth.middlewares');
 const auth = require('./auth/auth.routes');
 
 app.use(express.json());
 
+app.use(middleware.checkTokenSetUser);
+
 app.get('/', (req, res) => {
   res.json({
     message: 'Hello World!',
+    user: req.user,
   });
 });
 
