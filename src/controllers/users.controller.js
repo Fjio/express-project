@@ -6,7 +6,7 @@ const db = require("../db/connection");
 const users = db.get("users");
 const schema = Joi.object({
   username: Joi.string()
-    .regex(/(^[a-zA-Z0-9_]*$)/)
+    .regex(/(^[A-Za-z0-9\-\_]*$)/)
     .min(3)
     .max(30),
   password: Joi.string()
