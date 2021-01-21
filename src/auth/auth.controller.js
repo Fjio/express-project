@@ -37,7 +37,7 @@ const get = (req, res) => {
 
 const signup = async (req, res, next) => {
     try {
-        const hashed = await bcrypt.hash(req.body.password,16);
+        const hashed = await bcrypt.hash(req.body.password,12);
         const newUser = {
             username: req.body.username,
             password: hashed,

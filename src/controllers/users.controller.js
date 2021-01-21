@@ -41,7 +41,7 @@ const updateOne = async (req, res, next) => {
         //update user in DB
         const updatedUser = req.body;
         if (updatedUser.password) {
-          updatedUser.password = await bcrypt.hash(updatedUser.password, 16);
+          updatedUser.password = await bcrypt.hash(updatedUser.password, 12);
         }
         const result = await users.findOneAndUpdate(query, {
           $set: updatedUser,

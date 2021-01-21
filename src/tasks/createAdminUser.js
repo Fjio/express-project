@@ -11,7 +11,7 @@ async function createAdminUser() {
         if (!user) {
             await users.insert({
                 username: 'pierre-admin',
-                password: await bcrypt.hash(process.env.DEFAULT_ADMIN_PASSWORD,16),
+                password: await bcrypt.hash(process.env.DEFAULT_ADMIN_PASSWORD,12),
                 active: true,
                 role:'admin',
             });
